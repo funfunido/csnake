@@ -1,0 +1,1 @@
+C:\Users\HUEcyber\Documents\mingw64\bin\gcc.exe main.c -O3 -Wall -Werror -o C:\Users\HUEcyber\Desktop\csnake\snake.exe 
