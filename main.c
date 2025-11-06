@@ -11,7 +11,10 @@ int main() {
 
     InitWindow(screenWidth, screenHeight, "cSnake");
 
-    Vector2 ballPosition = { (float)screenWidth/2, (float)screenHeight/2 };
+    //Vector2 ballPosition = { (float)screenWidth/2, (float)screenHeight/2 };
+
+    int recX = screenWidth / 2;
+    int recY = screenHeight / 2;
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -20,10 +23,10 @@ int main() {
     while (!WindowShouldClose()) {   // Detect window close button or ESC key
         // Update
         //----------------------------------------------------------------------------------
-        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) ballPosition.x += 2.0f;
-        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) ballPosition.x -= 2.0f;
-        if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) ballPosition.y -= 2.0f;
-        if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) ballPosition.y += 2.0f;
+        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) recX += 2.0f;
+        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) recX -= 2.0f;
+        if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) recY -= 2.0f;
+        if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) recY += 2.0f;
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -34,7 +37,8 @@ int main() {
 
             DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, DARKGRAY);
 
-            DrawCircleV(ballPosition, 50, MAROON);
+            //DrawCircleV(ballPosition, 50, MAROON);
+            DrawRectangle(recX, recY, 50, 50, GREEN);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
