@@ -20,10 +20,10 @@ int main() {
     while (!WindowShouldClose()) {   // Detect window close button or ESC key
         // Update
         //----------------------------------------------------------------------------------
-        if (IsKeyDown(KEY_RIGHT || KEY_D)) ballPosition.x += 2.0f;
-        if (IsKeyDown(KEY_LEFT || KEY_A)) ballPosition.x -= 2.0f;
-        if (IsKeyDown(KEY_UP || KEY_W)) ballPosition.y -= 2.0f;
-        if (IsKeyDown(KEY_DOWN || KEY_S)) ballPosition.y += 2.0f;
+        if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) ballPosition.x += 2.0f;
+        if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) ballPosition.x -= 2.0f;
+        if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) ballPosition.y -= 2.0f;
+        if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) ballPosition.y += 2.0f;
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -32,7 +32,7 @@ int main() {
 
             ClearBackground(RAYWHITE);
 
-            DrawText("Move snake with arrow keys", 10, 10, 20, DARKGRAY);
+            DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, DARKGRAY);
 
             DrawCircleV(ballPosition, 50, MAROON);
 
