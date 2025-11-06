@@ -6,8 +6,8 @@ int main() {
 
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 1080;
+    const int screenHeight = 1080;
 
     InitWindow(screenWidth, screenHeight, "cSnake");
 
