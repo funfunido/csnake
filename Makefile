@@ -1,5 +1,5 @@
 CC = clang
-CCFLAGS = -O3 -L./lib/ -rpath @executable_path
+CCFLAGS = -O3 -L./lib/
 DYNLIB = librayliblin.so
 
 ifeq ($(OS),Windows_NT)
@@ -13,7 +13,7 @@ else
 	endif
 
 	ifeq ($(UNAME_S),Darwin)
-		CCFLAGS += -lraylibmac
+		CCFLAGS += -rpath @executable_path -lraylibmac
 		DYNLIB = libraylibmac.dylib
 	endif
 endif
