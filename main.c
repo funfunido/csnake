@@ -35,10 +35,10 @@ int main() {
 
             ClearBackground(RAYWHITE);
 
-            DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, DARKGRAY);
-
             //DrawCircleV(ballPosition, 50, MAROON);
             DrawRectangle(recX, recY, 50, 50, GREEN);
+
+            DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, DARKGRAY);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
