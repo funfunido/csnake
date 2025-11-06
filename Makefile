@@ -1,7 +1,7 @@
 CC = clang
 CCFLAGS = -O3 -L./lib/
 DYNLIB = librayliblin.so
-OTHER_POST_COMS = mv bin/librayliblin.so bin/libraylib.550.so
+OTHER_POST_COMS = mv bin/librayliblin.so bin/libraylib.so.550
 
 ifeq ($(OS),Windows_NT)
 	CCFLAGS += -lraylibwin
