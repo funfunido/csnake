@@ -1,2 +1,6 @@
 .DS_Store
-bin/*
+bin/csnake
+
+bin/libraylib.550.dylib
+bin/libraylib.so.550
+bin/libraylib.dll
