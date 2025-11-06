@@ -6,8 +6,8 @@ int main() {
 
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 640;
-    const int screenHeight = 640;
+    const int screenWidth = 740;
+    const int screenHeight = 740;
 
     InitWindow(screenWidth, screenHeight, "cSnake");
 
@@ -15,6 +15,10 @@ int main() {
 
     int recX = screenWidth / 2;
     int recY = screenHeight / 2;
+
+    Image bg = LoadImage("img/grid.png");
+    Texture2D bgtexture = LoadTextureFromImage(bg); 
+    UnloadImage(bg);
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -34,6 +38,8 @@ int main() {
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
+
+            DrawTexture(bgtexture, screenWidth, screenHeight, WHITE);
 
             //DrawCircleV(ballPosition, 50, MAROON);
             DrawRectangle(recX, recY, 50, 50, GREEN);
