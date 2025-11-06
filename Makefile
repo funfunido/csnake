@@ -16,4 +16,4 @@ else
 endif
 
 main: main.c
-	$(CC) main.c $(CCFLAGS) -o csnake
+	$(CC) main.c $(CCFLAGS) -o bin/csnake
