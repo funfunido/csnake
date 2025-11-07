@@ -1,6 +1,8 @@
 #include "include/raylib.h"
 #include <stdio.h>
 
+#define DEBUG 0
+
 typedef enum direction {
     UP,
     DOWN,
@@ -56,15 +58,25 @@ int main() {
                 break;
         }
 
-        if (recX >= 640) {
-            recX = screenWidth / 2;
+        if(recX > 640) {
+            recX = 0;
         }
-
-        if (recY >= 640) {
-            recY = screenHeight / 2;
+        if(recY > 640) {
+            recY = 0;
         }
+        if(recX < 0) {
+            recX = 640;
+        }
+        if(recY < 0) {
+            recY = 640;
+        }
+        #ifdef DEBUG 1
+            printf("%i, ", recX);
+            printf("%i\n", recY);
+        #endif
 
-                // logic end
+
+        // logic end
 
         BeginDrawing();
 
