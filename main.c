@@ -1,5 +1,6 @@
 #include "include/raylib.h"
 #include <stdio.h>
+#include <time.h>
 
 // #define DEBUG
 
@@ -24,6 +25,9 @@ food_t foods[2] = {
 int main() {
     const int screenWidth = 640;
     const int screenHeight = 640;
+
+    int randFoodValueX = GetRandomValue(0, screenWidth);
+    int randFoodValueY = GetRandomValue(0, screenHeight);
 
     // snake vars
     dir_t snakeMove;
@@ -83,6 +87,8 @@ int main() {
             ClearBackground(BLACK);
 
             DrawRectangle(recX, recY, 50, 50, GREEN);
+            
+            //TODO:: ADD FOOD SPAWNING DrawRectangle(randFoodValueX, randFoodValueY, 50, 50, );
 
             DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, RAYWHITE);
 
