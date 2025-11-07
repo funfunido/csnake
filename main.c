@@ -43,6 +43,10 @@ int main() {
                 break;
         }
 
+        if (recX >= 640) {
+            recX = screenWidth / 2;
+        }
+
         BeginDrawing();
 
             ClearBackground(BLACK);
