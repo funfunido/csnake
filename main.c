@@ -6,13 +6,26 @@ typedef enum direction {
     DOWN,
     LEFT,
     RIGHT
- } dir_t;
+} dir_t;
+
+typedef struct food_s {
+    Color   clr;
+    int     prob;
+    int     hp;
+} food_t;
+
+food_t foods[2] = {
+    { RED, 5, 1 },      // apple
+    { YELLOW, 10, 2 }   // banana
+};
 
 int main() {
     const int screenWidth = 640;
     const int screenHeight = 640;
 
+    // snake vars
     dir_t snakeMove;
+    int snakeLength;
 
     InitWindow(screenWidth, screenHeight, "cSnake");
 
@@ -22,7 +35,7 @@ int main() {
     SetTargetFPS(30);
 
     while (!WindowShouldClose()) {
-
+        // logic begin
         if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) snakeMove = RIGHT;
         if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) snakeMove = LEFT;
         if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) snakeMove = UP;
@@ -36,13 +49,14 @@ int main() {
                 recX -= 10;
                 break;
             case UP:
-                recY -= 10;
+                recY -= 10; // what in the devils is the reason for up being -Y and down being +Y????
                 break;
             case DOWN:
                 recY += 10;
                 break;
         }
-
+        // logic end
+    
         BeginDrawing();
 
             ClearBackground(BLACK);
