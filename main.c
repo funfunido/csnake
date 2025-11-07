@@ -13,18 +13,13 @@ int main() {
 
     SetTargetFPS(30);
 
-    // Main game loop
-    while (!WindowShouldClose()) {   // Detect window close button or ESC key
-        // Update
-        //----------------------------------------------------------------------------------
+    while (!WindowShouldClose()) {
+
         if (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D)) recX += 2;
         if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) recX -= 2;
         if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) recY -= 2;
         if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) recY += 2;
-        //----------------------------------------------------------------------------------
 
-        // Draw
-        //----------------------------------------------------------------------------------
         BeginDrawing();
 
             ClearBackground(BLACK);
@@ -34,13 +29,8 @@ int main() {
             DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, RAYWHITE);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
-
+    CloseWindow();
 	return 0;
 }
