@@ -58,16 +58,16 @@ int main() {
                 break;
         }
 
-        if(recX > 640) {
+        if (recX > 640) {
             recX = 0;
         }
-        if(recY > 640) {
+        if (recY > 640) {
             recY = 0;
         }
-        if(recX < 0) {
+        if (recX < 0) {
             recX = 640;
         }
-        if(recY < 0) {
+        if (recY < 0) {
             recY = 640;
         }
         #ifdef DEBUG
