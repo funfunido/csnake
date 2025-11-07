@@ -1,7 +1,7 @@
 #include "include/raylib.h"
 #include <stdio.h>
 
-#define DEBUG 0
+// #define DEBUG
 
 typedef enum direction {
     UP,
@@ -70,7 +70,7 @@ int main() {
         if(recY < 0) {
             recY = 640;
         }
-        #ifdef DEBUG 1
+        #ifdef DEBUG
             printf("%i, ", recX);
             printf("%i\n", recY);
         #endif
