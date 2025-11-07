@@ -55,8 +55,17 @@ int main() {
                 recY += 10;
                 break;
         }
-        // logic end
-    
+
+        if (recX >= 640) {
+            recX = screenWidth / 2;
+        }
+
+        if (recY >= 640) {
+            recY = screenHeight / 2;
+        }
+
+                // logic end
+
         BeginDrawing();
 
             ClearBackground(BLACK);
