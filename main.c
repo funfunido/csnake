@@ -11,32 +11,22 @@ typedef enum direction {
     RIGHT
 } dir_t;
 
-typedef struct food_s {
-    Color   clr;
-    int     prob;
-    int     hp;
-} food_t;
-
-food_t foods[2] = {
-    { RED, 5, 1 },      // apple
-    { YELLOW, 10, 2 }   // banana
-};
-
 int main() {
     const int screenWidth = 640;
     const int screenHeight = 640;
+    Color foodColor = RED;
+
+    Rectangle player = {screenWidth / 2, screenHeight / 2, 32, 32};
 
     int randFoodValueX = GetRandomValue(0, screenWidth);
     int randFoodValueY = GetRandomValue(0, screenHeight);
+    Rectangle food = {randFoodValueX, randFoodValueY, 32, 32};
 
     // snake vars
     dir_t snakeMove;
     int snakeLength;
 
     InitWindow(screenWidth, screenHeight, "cSnake");
-
-    int recX = screenWidth / 2;
-    int recY = screenHeight / 2;
 
     SetTargetFPS(30);
 
@@ -49,34 +39,59 @@ int main() {
 
         switch(snakeMove) {
             case RIGHT:
-                recX += 10;
+                player.x += 10;
                 break;
             case LEFT:
-                recX -= 10;
+                player.x -= 10;
                 break;
             case UP:
-                recY -= 10; // what in the devils is the reason for up being -Y and down being +Y????
+                player.y -= 10; // what in the devils is the reason for up being -Y and down being +Y????
                 break;
             case DOWN:
-                recY += 10;
+                player.y += 10;
                 break;
         }
 
-        if (recX > 640) {
-            recX = 0;
+        if (player.x > 640) {
+            player.x = 0;
         }
-        if (recY > 640) {
-            recY = 0;
+        if (player.y > 640) {
+            player.y = 0;
         }
-        if (recX < 0) {
-            recX = 640;
+        if (player.x < 0) {
+            player.x = 640;
         }
-        if (recY < 0) {
-            recY = 640;
+        if (player.y < 0) {
+            player.y = 640;
         }
+
+        if(CheckCollisionRecs(player, food)) {
+            player.width *= 1.5;
+            switch (GetRandomValue(0, 3)) {
+                case 0:
+                    foodColor = RED;
+                    break;
+
+                case 1:
+                    foodColor = YELLOW;
+                    break;
+
+                case 2:
+                    foodColor = BROWN;
+                    break;
+
+                case 3:
+                    foodColor = ORANGE;
+                    break;
+            }
+
+            food.x = GetRandomValue(0, screenWidth);
+            food.y = GetRandomValue(0, screenHeight);
+        }
+
         #ifdef DEBUG
-            printf("%i, ", recX);
-            printf("%i\n", recY);
+            printf("%i, ", player.x);
+            printf("%i\n", player.y);
         #endif
 
 
@@ -86,9 +101,9 @@ int main() {
 
             ClearBackground(BLACK);
 
-            DrawRectangle(recX, recY, 50, 50, GREEN);
-            
-            //TODO:: ADD FOOD SPAWNING DrawRectangle(randFoodValueX, randFoodValueY, 50, 50, );
+            DrawRectangle(player.x, player.y, player.width, player.height, GREEN);
+
+            DrawRectangle(food.x, food.y, 32, 32, foodColor);
 
             DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, RAYWHITE);
 
