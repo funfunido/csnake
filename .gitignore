@@ -1,6 +1,8 @@
 .DS_Store
 bin/csnake
 
+.vscode/*
+
 bin/libraylib.550.dylib
 bin/libraylib.so.550
 bin/libraylib.dll
