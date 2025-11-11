@@ -4,8 +4,7 @@
 
 // #define DEBUG 
 
-//git-cdr-+ main contributer
-//teker-nya - joined late
+// now in contrib.md
 typedef enum direction {
     UP,
     DOWN,
