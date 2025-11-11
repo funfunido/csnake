@@ -4,6 +4,7 @@
 
 // #define DEBUG 
 
+//git-cdr-+
 typedef enum direction {
     UP,
     DOWN,
@@ -45,7 +46,7 @@ int main() {
                 player.x -= 10;
                 break;
             case UP:
-                player.y -= 10; // what in the devils is the reason for up being -Y and down being +Y???? idk
+                player.y -= 10; // what in the devils is the reason for up being -Y and down being +Y???? 
                 break;
             case DOWN:
                 player.y += 10;
@@ -73,7 +74,7 @@ int main() {
                     break;
 
                 case 1:
-                    foodColor = YELLOW; //resolved
+                    foodColor = YELLOW; 
                     break;
 
                 case 2:
