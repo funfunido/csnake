@@ -4,7 +4,8 @@
 
 // #define DEBUG 
 
-//git-cdr-+
+//git-cdr-+ main contributer
+//teker-nya - joined late
 typedef enum direction {
     UP,
     DOWN,
