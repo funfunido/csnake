@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
-// #define DEBUG cycle
+// #define DEBUG 
 
 typedef enum direction {
     UP,
