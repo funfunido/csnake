@@ -69,7 +69,7 @@ int main() {
             player.width *= 1.5;
             switch (GetRandomValue(0, 3)) {
                 case 0:
-                    foodColor = RED;
+                    foodColor = RED; //change to hex-code
                     break;
 
                 case 1:
