@@ -28,6 +28,7 @@ int main() {
     int snakeLength;
 
     InitWindow(screenWidth, screenHeight, "cSnake");
+	//init window is so neat
 
     SetTargetFPS(30);
 
