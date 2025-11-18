@@ -10,11 +10,11 @@ typedef enum direction {
     DOWN,
     LEFT,
     RIGHT
-} dir_t;
+} dir_t; //enum for directions
 
 int main() {
     const int screenWidth = 640;
-    const int screenHeight = 640;
+    const int screenHeight = 640; //athhpect rrathio
     Color foodColor = RED;
 
     Rectangle player = {screenWidth / 2, screenHeight / 2, 32, 32};
@@ -37,6 +37,7 @@ int main() {
         if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A)) snakeMove = LEFT;
         if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_W)) snakeMove = UP;
         if (IsKeyDown(KEY_DOWN) || IsKeyDown(KEY_S)) snakeMove = DOWN;
+		//holy key detection bro
 
         switch(snakeMove) {
             case RIGHT:
@@ -88,12 +89,16 @@ int main() {
 
             food.x = GetRandomValue(0, screenWidth);
             food.y = GetRandomValue(0, screenHeight);
+
+		//YAY i was gonna use c random function, but raylib has convenient get rand value function YAY
         }
 
         #ifdef DEBUG
             printf("%i, ", player.x);
             printf("%i\n", player.y);
         #endif
+
+		//extra debug prints for x and y
 
 
         // logic end
@@ -108,9 +113,11 @@ int main() {
 
             DrawText("Move the snake with the arrow keys or with WASD", 10, 10, 15, RAYWHITE);
 
+		//instructions
+
         EndDrawing();
     }
-
+//once loop hack of window ends, closes window and returns success code
     CloseWindow();
 	return 0;
 }
